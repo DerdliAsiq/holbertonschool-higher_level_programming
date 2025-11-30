@@ -1,54 +1,75 @@
-
-5. Detect instance deletion
-mandatory
-
-Write a class Rectangle that defines a rectangle by: (based on 4-rectangle.py)
-
-    Private instance attribute: width:
-        property def width(self): to retrieve it
-        property setter def width(self, value): to set it:
-            width must be an integer, otherwise raise a TypeError exception with the message width must be an integer
-            if width is less than 0, raise a ValueError exception with the message width must be >= 0
-    Private instance attribute: height:
-        property def height(self): to retrieve it
-        property setter def height(self, value): to set it:
-            height must be an integer, otherwise raise a TypeError exception with the message height must be an integer
-            if height is less than 0, raise a ValueError exception with the message height must be >= 0
-    Instantiation with optional width and height: def __init__(self, width=0, height=0):
-    Public instance method: def area(self): that returns the rectangle area
-    Public instance method: def perimeter(self): that returns the rectangle perimeter:
-        if width or height is equal to 0, perimeter has to be equal to 0
-    print() and str() should print the rectangle with the character #:
-        if width or height is equal to 0, return an empty string
-    repr() should return a string representation of the rectangle to be able to recreate a new instance by using eval()
-    Print the message Bye rectangle... (... being 3 dots not ellipsis) when an instance of Rectangle is deleted
-    You are not allowed to import any module
-
-guillaume@ubuntu:~/$ cat 5-main.py
 #!/usr/bin/python3
-Rectangle = __import__('5-rectangle').Rectangle
+"""5-rectangle module: defines a Rectangle class with deletion message."""
 
-my_rectangle = Rectangle(2, 4)
-print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
 
-del my_rectangle
+class Rectangle:
+    """Class that defines a rectangle by width and height."""
 
-try:
-    print(my_rectangle)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+    def __init__(self, width=0, height=0):
+        """Initialize a new Rectangle.
 
-guillaume@ubuntu:~/$ ./5-main.py
-Area: 8 - Perimeter: 12
-Bye rectangle...
-[NameError] name 'my_rectangle' is not defined
-guillaume@ubuntu:~/$ 
+        Args:
+            width (int): rectangle width (default 0)
+            height (int): rectangle height (default 0)
+        """
+        self.width = width
+        self.height = height
 
-No test cases needed
+    @property
+    def width(self):
+        """Retrieve the width."""
+        return self.__width
 
-Repo:
+    @width.setter
+    def width(self, value):
+        """Set the width with validation."""
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        if value < 0:
+            raise ValueError("width must be >= 0")
+        self.__width = value
 
-    GitHub repository: holbertonschool-higher_level_programming
-    Directory: python-more_classes
-    File: 5-rectangle.py
+    @property
+    def height(self):
+        """Retrieve the height."""
+        return self.__height
 
+    @height.setter
+    def height(self, value):
+        """Set the height with validation."""
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        if value < 0:
+            raise ValueError("height must be >= 0")
+        self.__height = value
+
+    def area(self):
+        """Return the area of the rectangle."""
+        return self.__width * self.__height
+
+    def perimeter(self):
+        """Return the perimeter of the rectangle.
+
+        If width or height is 0, return 0.
+        """
+        if self.__width == 0 or self.__height == 0:
+            return 0
+        return 2 * (self.__width + self.__height)
+
+    def __str__(self):
+        """Return the string representation of the rectangle using '#'.
+
+        If width or height is 0, return an empty string.
+        """
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        line = "#" * self.__width
+        return "\n".join(line for _ in range(self.__height))
+
+    def __repr__(self):
+        """Return a string representation that can recreate the instance."""
+        return "Rectangle({}, {})".format(self.__width, self.__height)
+
+    def __del__(self):
+        """Print a message when an instance is deleted."""
+        print("Bye rectangle...")
