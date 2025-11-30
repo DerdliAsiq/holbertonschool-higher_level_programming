@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""4-rectangle module: defines a Rectangle class with eval()-compatible repr."""
+"""Rectangle module."""
 
 
 class Rectangle:
