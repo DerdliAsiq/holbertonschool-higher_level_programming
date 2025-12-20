@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SQL - MySQL
 
 This project advances into intermediate SQL concepts using **MySQL**. It covers user management, privileges, database constraints, and advanced query techniques such as **Joins**, **Unions**, and **Subqueries**. You will also learn how to model data relationships using Primary and Foreign Keys.
@@ -62,3 +63,6 @@ $ cat my_script.sql
 -- 3 first students in the Batch ID=3
 -- because Batch 3 is the best!
 SELECT id, name FROM students WHERE batch_id = 3 ORDER BY created_at DESC LIMIT 3;
+=======
+SQL More Queries
+>>>>>>> 7158139 (added new repo)

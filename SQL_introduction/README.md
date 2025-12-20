@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SQL - Introduction
 
 This project introduces the fundamentals of **Relational Databases** using **MySQL**. It covers the basics of **SQL** (Structured Query Language), including Data Definition Language (DDL) and Data Manipulation Language (DML). You will learn how to create databases, manage tables, and perform various operations on data such as insertion, selection, updates, and deletion.
@@ -267,3 +268,6 @@ Records should be listed by descending score.
 The database name will be passed as an argument to the mysql command.
 
 File: 16-no_link.sql
+=======
+SQL Introduction
+>>>>>>> 7158139 (added new repo)

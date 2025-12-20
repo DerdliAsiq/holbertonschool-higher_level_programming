@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 -- This script uses the hbtn_0d_tvshows database to list all genres not linked to the show Dexter.
 -- The tv_shows table contains only one record where title = Dexter.
 -- Each record displays: tv_genres.name.
@@ -11,4 +12,15 @@ WHERE id NOT IN (
     JOIN tv_shows ON tv_show_genres.show_id = tv_shows.id
     WHERE tv_shows.title = 'Dexter'
 )
+=======
+-- Lists all genres not linked to the show Dexter.
+SELECT name 
+FROM tv_genres 
+WHERE id NOT IN (
+    SELECT genre_id 
+    FROM tv_show_genres 
+    INNER JOIN tv_shows ON tv_show_genres.show_id = tv_shows.id 
+    WHERE tv_shows.title = 'Dexter'
+) 
+>>>>>>> 7158139 (added new repo)
 ORDER BY name ASC;

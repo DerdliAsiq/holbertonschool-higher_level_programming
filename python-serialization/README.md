@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Python - Serialization
 
 ## 📝 Introduction
@@ -86,3 +87,6 @@ Gain experience in reading data from one format (CSV) and converting it into ano
     {"name": "John", "age": "28", "city": "New York"},
     {"name": "Alice", "age": "24", "city": "Los Angeles"}
 ]
+=======
+Python Serialization
+>>>>>>> 7158139 (added new repo)

@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+<<<<<<< HEAD
 """6-rectangle module: defines a Rectangle class with instance counter."""
 
 
@@ -8,10 +9,18 @@ class Rectangle:
     Class Attributes:
         number_of_instances (int): counts the number of Rectangle instances.
     """
+=======
+"""Defines a Rectangle class."""
+
+
+class Rectangle:
+    """Represent a rectangle."""
+>>>>>>> 7158139 (added new repo)
 
     number_of_instances = 0
 
     def __init__(self, width=0, height=0):
+<<<<<<< HEAD
         """Initialize a new Rectangle.
 
         Args:
@@ -25,11 +34,22 @@ class Rectangle:
     @property
     def width(self):
         """Retrieve the width."""
+=======
+        self.width = width
+        self.height = height
+        Rectangle.number_of_instances += 1
+
+    @property
+    def width(self):
+>>>>>>> 7158139 (added new repo)
         return self.__width
 
     @width.setter
     def width(self, value):
+<<<<<<< HEAD
         """Set the width with validation."""
+=======
+>>>>>>> 7158139 (added new repo)
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -38,12 +58,18 @@ class Rectangle:
 
     @property
     def height(self):
+<<<<<<< HEAD
         """Retrieve the height."""
+=======
+>>>>>>> 7158139 (added new repo)
         return self.__height
 
     @height.setter
     def height(self, value):
+<<<<<<< HEAD
         """Set the height with validation."""
+=======
+>>>>>>> 7158139 (added new repo)
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
@@ -51,6 +77,7 @@ class Rectangle:
         self.__height = value
 
     def area(self):
+<<<<<<< HEAD
         """Return the area of the rectangle."""
         return self.__width * self.__height
 
@@ -80,3 +107,27 @@ class Rectangle:
         """Actions on instance deletion."""
         print("Bye rectangle...")
         type(self).number_of_instances -= 1
+=======
+        return self.__width * self.__height
+
+    def perimeter(self):
+        if self.__width == 0 or self.__height == 0:
+            return 0
+        return (self.__width * 2) + (self.__height * 2)
+
+    def __str__(self):
+        if self.__width == 0 or self.__height == 0:
+            return ""
+
+        rect = []
+        for i in range(self.__height):
+            rect.append("#" * self.__width)
+        return "\n".join(rect)
+
+    def __repr__(self):
+        return "Rectangle({}, {})".format(self.__width, self.__height)
+
+    def __del__(self):
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
+>>>>>>> 7158139 (added new repo)

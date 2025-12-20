@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 -- creates the table unique_id on DB srv, if the table unique_id already exists, script does not fail.
 -- unique_id description:
 -- id INT with the default value 1 and must be unique
 -- name VARCHAR(256)
+=======
+-- Creates the table unique_id on your MySQL server.
+>>>>>>> 7158139 (added new repo)
 CREATE TABLE IF NOT EXISTS unique_id (
     id INT DEFAULT 1 UNIQUE,
     name VARCHAR(256)

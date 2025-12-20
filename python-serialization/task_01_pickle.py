@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
+=======
+"""Pickling module."""
+>>>>>>> 7158139 (added new repo)
 import pickle
 
 
 class CustomObject:
+<<<<<<< HEAD
     """
     A custom class that demonstrates how to pickle (serialize)
     and unpickle (deserialize) Python objects.
@@ -12,11 +17,17 @@ class CustomObject:
         """
         Initialize the object with name, age, and student status.
         """
+=======
+    """Custom object class."""
+
+    def __init__(self, name, age, is_student):
+>>>>>>> 7158139 (added new repo)
         self.name = name
         self.age = age
         self.is_student = is_student
 
     def display(self):
+<<<<<<< HEAD
         """
         Prints the object's details in the specified format.
         """
@@ -37,10 +48,24 @@ class CustomObject:
                 pickle.dump(self, f)
         except Exception:
             # In a real app, we might log this error.
+=======
+        """Display object info."""
+        print("Name: {}".format(self.name))
+        print("Age: {}".format(self.age))
+        print("Is Student: {}".format(self.is_student))
+
+    def serialize(self, filename):
+        """Serialize object to file."""
+        try:
+            with open(filename, 'wb') as f:
+                pickle.dump(self, f)
+        except Exception:
+>>>>>>> 7158139 (added new repo)
             return None
 
     @classmethod
     def deserialize(cls, filename):
+<<<<<<< HEAD
         """
         Deserializes an instance from a file.
         This is a @classmethod because we are creating a new object
@@ -58,4 +83,11 @@ class CustomObject:
                 return pickle.load(f)
         except (FileNotFoundError, pickle.UnpicklingError, EOFError):
             # If file is missing or data is corrupt, return None as requested.
+=======
+        """Deserialize object from file."""
+        try:
+            with open(filename, 'rb') as f:
+                return pickle.load(f)
+        except Exception:
+>>>>>>> 7158139 (added new repo)
             return None
